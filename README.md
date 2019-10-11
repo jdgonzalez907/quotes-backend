@@ -2,6 +2,7 @@
 Proyecto realizado para la creación de frases aleatoriamente con su respectiva imagen.
 
 ## Tecnologías usadas
+- PostgreSQL 10.9
 - Scala 2.13
 - Play framework 2.7
 - Slick 4.0.2
@@ -20,7 +21,16 @@ git clone git@gitlab.com:jdgonzalez907/quotes.git
 ```shell
 sbt update
 ```
-3. Configurar la base de datos con PostgreSQL en el archivo que se encuentra en la ruta `conf/application.conf`
+3. Configurar la base de datos con PostgreSQL en el archivo que se encuentra en la ruta `conf/application.conf` y ejecutar el siguiente script para crear la tabla `QUOTE`:
+```sql
+CREATE TABLE public."QUOTE"
+(
+    "ID" integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+    "QUOTE" character varying(1000) COLLATE pg_catalog."default" NOT NULL,
+    "IMAGE" character varying(1000) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "QUOTE_pkey" PRIMARY KEY ("ID")
+)
+```
 4. Para ejecutar pruebas, ejecute el siguiente comando
 ```shell
 sbt test
