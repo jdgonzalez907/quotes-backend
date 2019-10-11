@@ -205,7 +205,7 @@ class QuoteControllerSpec extends PlaySpec with MockitoSugar {
           val result = controller.generateRandomQuote().apply(FakeRequest())
           val realResult = contentAsJson(result)
 
-          status(result) mustBe OK
+          status(result) mustBe CREATED
           realResult mustBe expectResult
         }
       }

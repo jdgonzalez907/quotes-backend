@@ -55,7 +55,7 @@ class QuoteController @Inject()(cc: ControllerComponents,
 
     quoteFuture.fold(
       (error: String) => InternalServerError( Json.toJson( ResultMessageResponse(error) ) ),
-      (quote: Quote) => Ok( Json.toJson( ResultDataResponse[Quote](quote) ) )
+      (quote: Quote) => Created( Json.toJson( ResultDataResponse[Quote](quote) ) )
     )
   }
 
