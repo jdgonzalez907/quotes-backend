@@ -42,7 +42,7 @@ class QuoteRepository @Inject() (dbConfigProvider: DatabaseConfigProvider) (impl
   }
 
   def getAllQuotes(): EitherT[Future, String, Seq[Quote]] = {
-    EitherT(db.run(quoteTable.result.asTry.map({
+    EitherT(db.run(quoteTable.sortBy(_.ID.desc).result.asTry.map({
       case Success(quoteList) => Right(quoteList)
       case Failure(_: Throwable) => Left("Ocurrio un error al listar las frases")
     })).recover({
