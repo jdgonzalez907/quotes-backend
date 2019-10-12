@@ -21,7 +21,7 @@ git clone git@gitlab.com:jdgonzalez907/quotes.git
 ```shell
 sbt update
 ```
-3. Configurar la base de datos con PostgreSQL en el archivo que se encuentra en la ruta `conf/application.conf` y ejecutar el siguiente script para crear la tabla `QUOTE`:
+3. Configurar dos bases de datos en PostgreSQL (una para el desarrollo y la otra para las pruebas unitarias) en los archivos que se encuentra en la ruta `conf/application.conf` y `test/resources/conf/application.conf` respectivamente y ejecutar el siguiente script para crear la tabla `QUOTE`:
 ```sql
 CREATE TABLE public."QUOTE"
 (
