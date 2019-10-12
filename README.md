@@ -1,4 +1,4 @@
-# Quotes
+# QuotesBackend
 Proyecto realizado para la creación de frases aleatoriamente con su respectiva imagen.
 
 ## Tecnologías usadas
